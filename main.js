@@ -5,6 +5,11 @@ const startButton = document.getElementById("start-button");
 const restartButton = document.getElementById("restart-button");
 const reflection = document.getElementById("reflection");
 const img = document.getElementById("imageee");
+const college = document.getElementById("college");
+const twitter = document.getElementById("twitter");
+const insta = document.getElementById("insta");
+const button = document.getElementById("like");
+const cheatButton = document.getElementById("cheat-button");
 let slotNumber1 = 1;
 let slotNumber2 = 2;
 let slotNumber3 = 3;
@@ -40,14 +45,17 @@ const leech = function () {
     slot3.classList.add("colorr");
   }
 };
+const bingofunction = function () {
+  reflection.textContent = "Congratulations!!";
+  restartButton.removeAttribute("disabled");
+  img.src = "https://img.pachist.jp/article_images/o1390/momokyun_036.jpg";
+  slot1.classList.add("colorr");
+  slot2.classList.add("colorr");
+  slot3.classList.add("colorr");
+};
 startButton.onclick = function (min, max) {
   if (slotNumber1 === slotNumber2 && slotNumber2 === slotNumber3) {
-    reflection.textContent = "Congratulations!!";
-    restartButton.removeAttribute("disabled");
-    img.src = "https://img.pachist.jp/article_images/o1390/momokyun_036.jpg";
-    slot1.classList.add("colorr");
-    slot2.classList.add("colorr");
-    slot3.classList.add("colorr");
+    bingofunction();
   } else if (slotNumber1 === slotNumber3) {
     setTimeout(slotfunction2, 500);
     leech();
@@ -57,9 +65,7 @@ startButton.onclick = function (min, max) {
     setTimeout(slotfunction2, 1000);
     setTimeout(slotfunction3, 1500);
     if (slotNumber1 === slotNumber2 && slotNumber2 === slotNumber3) {
-      reflection.textContent = "Congratulations!!";
-      restartButton.removeAttribute("disabled");
-      img.src = "https://img.pachist.jp/article_images/o1390/momokyun_036.jpg";
+      bingofunction();
     }
   }
 };
@@ -72,4 +78,27 @@ restartButton.onclick = function () {
   slot1.classList.remove("colorr");
   slot2.classList.remove("colorr");
   slot3.classList.remove("colorr");
+  img.src =
+    "https://s3-ap-northeast-1.amazonaws.com/combzmail-help/2011/08/ecffc5c671ccacbb22b71335fa375188.png";
+};
+
+college.onclick = function () {
+  location.href = "https://www.ynu.ac.jp/";
+};
+
+twitter.onclick = function () {
+  location.href = "https://twitter.com/vtpJL4Zpmnhgel";
+};
+insta.onclick = function () {
+  location.href = "https://www.instagram.com/yuuki073943/";
+};
+
+like.onclick = function () {
+  reflection.textContent = "ワンピースを読むこと！！";
+};
+cheatButton.onclick = function () {
+  slot1.textContent = "7";
+  slot2.textContent = "7";
+  slot3.textContent = "7";
+  bingofunction();
 };
